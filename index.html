@@ -2,5 +2,12 @@
   <div>any text</div>
 </body>
 <script type="module">
-  import * as anyOne from "./index.js";
+  import { effect, reactive } from "./index.js";
+  let temp1, temp2;
+
+  const data = { foo: 1, bar: true };
+  const obj = reactive(data);
+  effect(() => {
+    document.body.innerText = obj.foo;
+  });
 </script>
